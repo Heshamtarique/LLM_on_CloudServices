@@ -1,0 +1,53 @@
+various AWS services: 
+looking into the AWS bedrock as they provide various Foundation models without worrying about Inference issues... Huggingface in Sagemaker & finally deploy it
+
+GenAI project lifecycle:
+    4 to 5 steps:
+        (a): defyning the usecases
+
+        (b): right model for right usecase/data --> FoundationModels[direct usage or Finetuning] or Custom LLMs 
+
+        (c): USe prompt Engineering & solve the business case or Finetuning from data we have or Training with Human Feedback
+
+        (d): Evaluating LLMs with the right metric
+
+        (e): Deployment... Application Integration [1: optimize, deploy models for Inferencing & build the app] --  LLMOps[AWS, GCP, Azure]
+
+
+Blog Generation:
+    API {amazon API gateway}: request object: remember postman API we hit: 
+    once we trigger an API in amazon API gateway Lambda function will come into picture which will interact with Amazon bedrock
+    which host lots of LLMs. Lambda function will be responsible for taking the query to the hosted models and get the output back. 
+    The ouput we will be storing on S3.
+
+    overview of bedrock @FoundationModels: https://ap-south-1.console.aws.amazon.com/bedrock/home?region=ap-south-1#/overview
+    say we are making EC2 instance- setup all the things, install or requiemrts,libraries, develop entire Application
+    and then with API gateway try to invoke AWS bedrock... another approach is to use AWS Lambda (lets you run the code without thinking about the servers)
+    https://ap-south-1.console.aws.amazon.com/lambda/home?region=ap-south-1#/begin
+    
+    craeting the lambda function
+    once we created the lambda function.... we will be coding there, but UI is not so interactive. code here and just pasting there
+
+    Layer creation: https://ap-south-1.console.aws.amazon.com/lambda/home?region=ap-south-1#/create/layer
+
+    URL to be invoked: https://yi3f3w5a6k.execute-api.ap-south-1.amazonaws.com/dev
+
+    now creating S3 bucket:
+        create an s3 where we will store data, files etc
+    hitting the post request with request object as: https://yi3f3w5a6k.execute-api.ap-south-1.amazonaws.com/dev/blog-generation
+    endpoint is blog-generation
+    Logs can be seen in: aws_cloud_watch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
